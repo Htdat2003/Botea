@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" style="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>BOTEA - Woodfire &amp; Gastronomy</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'botea-dark': '#0a0a0a',
+                        'botea-black': '#000000',
+                        'botea-gold': '#c49a6c',
+                        'botea-gold-dark': '#9b764d',
+                        'botea-gray': '#e5e7eb',
+                        'botea-gray-dark': '#9ca3af',
+                        'botea-bg-secondary': '#111111',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1544025162-811114bd4b55?q=80&w=2070&auto=format&fit=crop')",
+                        'atmosphere-pattern': "url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop')",
+                    }
+                }
+            }
+        }
+    </script>
+    <style data-purpose="custom-styles">
+        body {
+            background-color: theme('colors.botea-dark');
+            color: theme('colors.botea-gray');
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #eaddc5, #c49a6c, #eaddc5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .border-gold {
+            border-color: #c49a6c;
+        }
+
+        .bg-glass {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .ornament-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .ornament-line::before,
+        .ornament-line::after {
+            content: '';
+            height: 1px;
+            width: 40px;
+            background-color: #c49a6c;
+        }
+
+        .ornament-diamond {
+            width: 6px;
+            height: 6px;
+            background-color: #c49a6c;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-botea-gray selection:bg-botea-gold selection:text-black">
+    <!-- BEGIN: MainHeader -->
+    <header
+        class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center flex-col justify-center">
+                    <a href="#">
+                        <img src="logo_botea.png" alt="BOTEA - Woodfire & Gastronomy" class="h-20 w-auto object-contain">
+                    </a>
+                </div>
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
+                        href="#">Home</a>
+                    <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
+                        href="#">Menu</a>
+                    <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
+                        href="#">About</a>
+                    <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
+                        href="#">Gallery</a>
+                    <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
+                        href="#">Events</a>
+                    <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
+                        href="#">Contact</a>
+                </nav>
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a class="inline-block border border-botea-gold text-botea-gold px-6 py-3 text-xs font-semibold tracking-widest uppercase hover:bg-botea-gold hover:text-black transition-all duration-300"
+                        href="#reserve">
+                        Reserve A Table
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-white hover:text-botea-gold">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END: MainHeader -->
+    <main>
+        <!-- BEGIN: Hero Section -->
+        <section class="relative h-screen min-h-[800px] flex items-center bg-black overflow-hidden pt-24">
+            <div class="absolute inset-0 z-0"><img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMAxtMuVACyAGbOxtiH2wFt0QPyMXyZbhwTn-byJNXEKOHmx3om_Fo9cqz7rul6J7lVZ4WI7K9yVMt6oA7nmB09ykrG5XFHZec4dmgdqDcP9DGy3ktzEtNDGwlltWAbsELTSpk9XJatDrEfC_HSWLv215X9ZGnhrq5kDEkBaLgT_PvOFFZO37yRp3bsFd0yViZ6XFbR0mePtScXt07iQtVQdbXBS0Wrle0fkR1Tk3vR3m80MWD6wkRtLGkBJeshFIVbxw"
+                    alt="Woodfire Steak" class="w-full h-full object-cover opacity-80">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
+                <div class="max-w-2xl">
+                    <h1 class="font-serif text-5xl md:text-7xl text-white leading-tight mb-6">
+                        WOODFIRE <br> MEETS <br> GASTRONOMY
+                    </h1>
+                    <div class="ornament-line justify-start mb-6">
+                        <div class="ornament-diamond"></div>
+                    </div>
+                    <p class="text-botea-gray font-light text-sm md:text-base leading-relaxed mb-10 max-w-lg">
+                        At Botea, we celebrate the primal flavor of woodfire cooking with a modern gastronomic touch.
+                        Premium ingredients, expert techniques, unforgettable experiences.
+                    </p>
+                    <a class="inline-block border border-botea-gold text-botea-gold px-8 py-4 text-xs font-semibold tracking-widest uppercase hover:bg-botea-gold hover:text-black transition-all duration-300"
+                        href="#menu">
+                        Explore Menu
+                    </a>
+                    <!-- Slider Navigation Placeholder -->
+                    <div class="flex items-center gap-4 mt-20 text-xs tracking-widest font-semibold text-white">
+                        <span class="">01</span>
+                        <div class="w-12 h-px bg-white/30"></div>
+                        <span class="text-white/50">03</span>
+                    </div>
+                </div>
+                <!-- Calligraphic Overlay -->
+
+            </div>
+        </section>
+        <!-- END: Hero Section -->
+        <!-- BEGIN: Story Section -->
+        <section class="py-24 bg-botea-dark relative overflow-hidden">
+            <div class="absolute inset-0 z-0"><img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjDhbhr88Vr4SPz_UtFfCXORVmKRXDV6_UlmoTkl0zHmHSBmrXYvYGSZmNXQtzdjdZEPE2wzWJIB_HIiWZml4dTKRimSweMLGd4En7yhED2n1ZYcEmLzeCv_zMKiXMYZU8FaKlh6tysAwAGQAskkU2PiA-Ey7wJSZJ7SR4vM56_96fEPhpz9h7_QMfFr6vxR_0lVfZXW50FxUK_pj8PLnFVqgnbZxauyfJYOZ5PLHuGWKEbZyWvEqwlVWmiCb6NSWO-nQ"
+                    alt="Woodfire Gastronomy Background" class="w-full h-full object-cover opacity-80"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex justify-start">
+                <div class="max-w-2xl">
+                    <h2 class="font-serif text-4xl md:text-5xl text-white leading-tight mb-6 md:text-7xl">THE ART
+                        OF<br>WOODFIRE &amp;<br>GASTRONOMY</h2>
+                    <div class="ornament-line justify-start mb-8">
+                        <div class="ornament-diamond"></div>
+                    </div>
+                    <p class="text-botea-gray font-light leading-relaxed mb-10 max-w-md text-lg">Botea is more than a
+                        restaurant — it's a culinary journey. From our open woodfire grill to the finest ingredients, we
+                        craft dishes that ignite the senses.</p><a
+                        class="inline-block border border-botea-gold text-botea-gold px-8 py-4 text-xs font-semibold tracking-widest uppercase hover:bg-botea-gold hover:text-black transition-all duration-300"
+                        href="#about">Our Story</a>
+                </div>
+            </div>
+        </section>
+        <!-- END: Story Section -->
+        <!-- BEGIN: Menu Highlights Section -->
+        <section class="py-24 bg-botea-bg-secondary border-t border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <div
+                        class="text-botea-gold-dark text-xs tracking-[0.3em] uppercase mb-4 flex items-center justify-center gap-4">
+                        <span class="w-8 h-px bg-botea-gold/50"></span>
+                        Our Signature
+                        <span class="w-8 h-px bg-botea-gold/50"></span>
+                    </div>
+                    <h2 class="font-serif text-3xl md:text-4xl text-white">MENU HIGHLIGHTS</h2>
+                    <div class="ornament-line mt-6">
+                        <div class="ornament-diamond"></div>
+                    </div>
+                </div>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 divide-y md:divide-y-0 md:divide-x divide-white/10 text-center">
+                    <!-- Item 1 -->
+                    <div class="px-6 pt-8 md:pt-0">
+                        <div class="flex items-center justify-center mb-6 h-48"><img alt="Woodfire Steaks"
+                                class="h-40 w-40 object-contain"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7g092GENFq64DrDCogBotRKzMNo1PwKCLDRELIoXfCXDyNNlrcGBn3I7fRUNTDfGD0OqA05-5WmhmsLFP_rRJFYZ7MUAvGdTynR59DvUxm0vo1jFX1HcoMzm03q20K9YORlofd8brev615WGbX-fa5lEbdZgwkuY8aDzc2kS7KlHi8qIexKT-QDprNHo4ddWQGtsD3dGUmAAYCSev7PVJTNbreTx4AwRdpakArKqAeWKmeGA7u7bbhkzDlnAPuAHHUcII66Dd5bu8t4w">
+                        </div>
+                        <h3 class="font-serif text-lg text-white tracking-wider mb-4 uppercase">Woodfire Steaks</h3>
+                        <p class="text-sm text-botea-gray-dark font-light mb-6">Premium cuts grilled to perfection over
+                            natural woodfire.</p>
+                        <a class="text-botea-gold text-xs font-semibold tracking-widest uppercase hover:text-white transition-colors flex items-center justify-center gap-2"
+                            href="#">
+                            View Menu
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="px-6 pt-8 md:pt-0">
+                        <div class="flex items-center justify-center mb-6 h-48"><img alt="Seafood"
+                                class="h-40 w-40 object-contain"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz8pqpdIKMRRpgZ1DmUP2meTdxxV9bvggqmeS_mZbrb-sdaIUAyEnOCGuzrU4WRI4Op4OCfjkYiL9tY4Jnl4uUifD6xYm0HbwCb271Qcx5G4HoKJtXMR4loBoBEWu4TEeGsFIcaxUpbP4eP0dCh7cJIUzWQhWKjrUTuJaUa_2YwzF4Kd7zBunejD_Ltk2sPq46t23VBzBIsNCkwZ4jROCmygZvca2rwNIEqX_O6euG1PWtZEXSJ78U5iIOSGEpcUyH4gnTeqf-lZdGd2g">
+                        </div>
+                        <h3 class="font-serif text-lg text-white tracking-wider mb-4 uppercase">Seafood</h3>
+                        <p class="text-sm text-botea-gray-dark font-light mb-6">Fresh seafood with bold flavors and
+                            finest ingredients.</p>
+                        <a class="text-botea-gold text-xs font-semibold tracking-widest uppercase hover:text-white transition-colors flex items-center justify-center gap-2"
+                            href="#">
+                            View Menu
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="px-6 pt-8 md:pt-0">
+                        <div class="flex items-center justify-center mb-6 h-48"><img alt="Fine Wines"
+                                class="h-40 w-40 object-contain"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA07xbKV-cX0tbUGZoq8FUwNEAlKgO5IeTYdET6jNhM1r7hGGq6Brlz_ORF0GmQF6oN1vrJMl6M6ToSmjWg6coBYm4XWOI1wH3OgVSqcZS1biR1gLDPx2l5a74AtKilr8YJDnL1CO6ohs_fTYkjPjtcl6kiLeCYuLNHVNJrGUryx3ZhDS4TPh9xATLAeQP6kKn8YABqdQpU6wSfmPH0qgkuD8y5Qs1Qcksh792KM_N3SgzJJMYD4y2MNa6kSAnHBzxzHtatcA_QODuH-B4">
+                        </div>
+                        <h3 class="font-serif text-lg text-white tracking-wider mb-4 uppercase">Fine Wines</h3>
+                        <p class="text-sm text-botea-gray-dark font-light mb-6">Curated wine selection to elevate your
+                            dining experience.</p>
+                        <a class="text-botea-gold text-xs font-semibold tracking-widest uppercase hover:text-white transition-colors flex items-center justify-center gap-2"
+                            href="#">
+                            View Menu
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="px-6 pt-8 md:pt-0">
+                        <div class="flex items-center justify-center mb-6 h-48"><img alt="Desserts"
+                                class="h-40 w-40 object-contain"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuABH_2gzt7c0pa1SrjGPdGooRt7yYHZ-TUvD9-cXe9-FT7OCmeijp_ulji1tosc20Pd9Wg3HDBfByKE1OM7UgLNlnd8PyPl5UxZ8OpKjXzXuyjLQJho0LhT7_RUiB8n6HprfIA18gNJLwDEP-XJsXn4mDGWJT5sP3VdvRnHAdclHz9XnOWvF_18_7cD_PpjqIO1vVclabAEZAmbhrL76hTtoH939A8weNnsdzpUxKj4dnA9ighZ-pMCfMmZcUNaN8onxtt0_C3e3RePnIQ">
+                        </div>
+                        <h3 class="font-serif text-lg text-white tracking-wider mb-4 uppercase">Desserts</h3>
+                        <p class="text-sm text-botea-gray-dark font-light mb-6">Indulgent creations crafted to be the
+                            perfect finale.</p>
+                        <a class="text-botea-gold text-xs font-semibold tracking-widest uppercase hover:text-white transition-colors flex items-center justify-center gap-2"
+                            href="#">
+                            View Menu
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Menu Highlights Section -->
+        <!-- BEGIN: Booking Section -->
+        <section class="relative py-32 bg-black overflow-hidden" id="reserve">
+            <div class="absolute inset-0 z-0">
+                <!-- Placeholder for atmosphere background -->
+                <img alt="Restaurant Atmosphere" class="w-full h-full object-cover opacity-80"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHNKH4xpuRfBVfRAkFiTHGS7wG0WqwtTb-ObOA1ntTae478LrhSlLpC3VgggbKE5v0pJfzmn0jYKodIhyCCdIeLZP-FbgRG3zKIVJQN0k-iRcG_4y8O59qxUwmuCl8dgTnDa_pND6Ax5PoC5E4oPTopFWkPC5rqvpfuHav0ITFWIFaRfzgfisXWB3viUl3FB5_jvJ1FN_9JBG3v4vm3yOZpYJnpKC53JCzeafHVVoi1Yuvp8bxlb68LxPXQXp3dEQIoCI">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Text Content -->
+                    <div>
+                        <h2 class="font-serif text-4xl md:text-5xl text-white leading-tight mb-6">
+                            AN ATMOSPHERE<br>LIKE NO OTHER
+                        </h2>
+                        <div class="ornament-line justify-start mb-6">
+                            <div class="ornament-diamond"></div>
+                        </div>
+                        <p class="text-botea-gray font-light leading-relaxed mb-10 max-w-md">
+                            Warm lights, open fire, and great company. Botea is the perfect place for special moments.
+                        </p>
+                        <a class="inline-block border border-botea-gold text-botea-gold px-8 py-4 text-xs font-semibold tracking-widest uppercase hover:bg-botea-gold hover:text-black transition-all duration-300"
+                            href="#">
+                            Reserve A Table
+                        </a>
+                    </div>
+                    <!-- Booking Form -->
+                    <div class="bg-black/60 backdrop-blur-md border border-white/10 p-8 md:p-12">
+                        <h3 class="font-serif text-2xl text-white text-center tracking-wider mb-8 uppercase">Book Your
+                            Table</h3>
+                        <form class="space-y-6">
+                            <!-- Date Input -->
+                            <div>
+                                <div class="relative">
+                                    <input
+                                        class="w-full bg-transparent border-b border-white/20 pb-3 text-white focus:border-botea-gold focus:ring-0 placeholder-botea-gray-dark transition-colors font-light text-sm"
+                                        placeholder="Date" type="text">
+                                    <div class="absolute right-0 top-0 text-botea-gray-dark">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Time Input -->
+                            <div>
+                                <div class="relative">
+                                    <select
+                                        class="w-full bg-transparent border-b border-white/20 pb-3 text-white focus:border-botea-gold focus:ring-0 appearance-none font-light text-sm [&amp;&gt;option]:bg-botea-dark [&amp;&gt;option]:text-white">
+                                        <option class="text-botea-gray-dark" disabled="" selected="" value="">Time
+                                        </option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="21:00">21:00</option>
+                                    </select>
+                                    <div class="absolute right-0 top-0 text-botea-gray-dark pointer-events-none">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="1.5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Guests Input -->
+                            <div>
+                                <div class="relative">
+                                    <select
+                                        class="w-full bg-transparent border-b border-white/20 pb-3 text-white focus:border-botea-gold focus:ring-0 appearance-none font-light text-sm [&amp;&gt;option]:bg-botea-dark [&amp;&gt;option]:text-white">
+                                        <option class="text-botea-gray-dark" disabled="" selected="" value="">Guests
+                                        </option>
+                                        <option value="1">1 Person</option>
+                                        <option value="2">2 People</option>
+                                        <option value="3">3 People</option>
+                                        <option value="4">4 People</option>
+                                        <option value="5+">5+ People</option>
+                                    </select>
+                                    <div class="absolute right-0 top-0 text-botea-gray-dark pointer-events-none">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="1.5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Submit Button -->
+                            <div class="pt-4">
+                                <button
+                                    class="w-full bg-botea-gold text-black px-6 py-4 text-sm font-semibold tracking-widest uppercase hover:bg-white transition-colors duration-300"
+                                    type="submit">
+                                    Book Now
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Booking Section -->
+        <!-- BEGIN: Testimonials Section -->
+        <section class="py-24 bg-botea-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-start">
+                <div class="text-center mb-16">
+                    <div
+                        class="text-botea-gold-dark text-xs tracking-[0.3em] uppercase mb-4 flex items-center justify-center gap-4">
+                        <span class="w-8 h-px bg-botea-gold/50"></span>
+                        Loved By Our Guests
+                        <span class="w-8 h-px bg-botea-gold/50"></span>
+                    </div>
+                    <div class="ornament-line mt-6">
+                        <div class="ornament-diamond"></div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <!-- Testimonial 1 -->
+                    <div class="text-center">
+                        <div class="flex justify-center text-botea-gold mb-4 space-x-1">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="font-serif text-lg text-white italic mb-4 leading-relaxed">
+                            "The best steak I've ever had.<br>The woodfire flavor is absolutely unforgettable."
+                        </p>
+                        <div class="text-botea-gray-dark text-sm uppercase tracking-widest">— James T.</div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="text-center">
+                        <div class="flex justify-center text-botea-gold mb-4 space-x-1">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="font-serif text-lg text-white italic mb-4 leading-relaxed">
+                            "Perfect atmosphere,<br>impeccable service and<br>amazing food."
+                        </p>
+                        <div class="text-botea-gray-dark text-sm uppercase tracking-widest">— Sophia L.</div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="text-center">
+                        <div class="flex justify-center text-botea-gold mb-4 space-x-1">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="font-serif text-lg text-white italic mb-4 leading-relaxed">
+                            "A hidden gem for<br>meat lovers and fine<br>dining enthusiasts."
+                        </p>
+                        <div class="text-botea-gray-dark text-sm uppercase tracking-widest">— Michael R.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Testimonials Section -->
+        <!-- BEGIN: Press Section -->
+        <section class="py-16 bg-black border-y border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h4 class="text-botea-gold-dark text-xs tracking-[0.3em] uppercase">As Featured In</h4>
+                </div>
+                <div
+                    class="flex flex-wrap items-center transition-all duration-500 justify-center md:gap-20 w-full gap-16">
+                    <img src="https://lh3.googleusercontent.com/aida/AP1WRLsk9XRnA7uX8mjkz0QAy9fc6ou_Z8Mg_XR1jfkVV1hviCmdUZsETEc9ICYtqeRsjHThJfIt_EXu1_pzxINoIXkSqXv-huvIWB5qGs8TgsiGymbr43moa8IuS1nc7OgC8IhKFbWuA_j4c-bBEdMO88cJdNnV_KpxWXautZ2AnZ9ng88WRpYG61ge3zTnjhvoZofqoGa7xAeP2I7sWRcvtDm8ycBVwWOuaPse0MVaYKZymtlRKV1uMkvrC5kT"
+                        alt="Robb Report Logo"
+                        class="h-16 md:h-24 object-contain opacity-80 hover:opacity-100 transition-opacity"><img
+                        src="https://lh3.googleusercontent.com/aida/AP1WRLt0cy4sBuVQkvnXgCdFbB6eYfc6CP3ujTD31UHtcxv8S00YIy57L9SG7mbFivH7oH38yjUg6DNT2P1NJjSlC3n-hiYi1aPQrldIWuW2HsefUhWkhp1gT-JJMZalV5eItFq1hI5RCNKNLpwhv3XsaLgu2Wdgs5hZ7_nQUU6WydMRb9VOocyr_NawqNII0FheqKbAEhzKht7stLlh6zyzuiR2xXOrEbcCJ6fcPbCpZIN0CBg_xBnre4yfu6lo"
+                        alt="Tatler Logo"
+                        class="h-16 md:h-24 object-contain opacity-80 hover:opacity-100 transition-opacity"><img
+                        src="https://lh3.googleusercontent.com/aida/AP1WRLv4wBszsWTUuGLIzkJWeE7ffUxLYMLLp2YR8KsshgLxK5MRgPy21YfLhSl3DHho1ng4Kwl3GY2CrmbiHWurMQlJNjk4frWcjT4sC3Hzm0OGBRXLK5Cof0CL4CBnlK2u7By7s8pMbzqn_XGck4wxj7krbvaTKpuOcVfI5ygSOQOrXgZGm2eysRWfjZWL_rwDg-IXl3jmsS7LugtuESD47MzDImyy-XodZkcqf479T7Kq6qo6SWlxyOL-U7-s"
+                        alt="VnExpress Logo"
+                        class="h-16 md:h-24 object-contain opacity-80 hover:opacity-100 transition-opacity"><img
+                        src="https://lh3.googleusercontent.com/aida/AP1WRLuFMO7HDLzfE9FOYHiQTNLs85gx34p7mOJ4uTx5_x6b0CW4bCoWq3J8gK0na6z6W9fCTRvA56oMviTRuIm1fQQk2Si7dnbZyOnG55VkHCrjOpCFtP2wL92KgrVDv_5oYb5SQN3rqw4T9kDABu6IgDroslSY9NwoN9wNv8v_lQjFt1BjwEcEXru0u50L7Gw87zhOs_R5UTFb3F0Rocok0x6xG-80HZrKP8knwlk5jj3JjbswuEcFiTeps4s"
+                        alt="Wanderlust Logo"
+                        class="h-16 md:h-24 object-contain opacity-80 hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+        </section>
+        <!-- END: Press Section -->
+    </main>
+    <!-- BEGIN: MainFooter -->
+    <footer class="bg-botea-dark pt-20 pb-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand & About -->
+                <div class="flex flex-col h-full">
+                    <div class="mb-6 inline-block">
+                        <img src="logo_botea.png" alt="BOTEA - Woodfire & Gastronomy" class="h-24 w-auto object-contain">
+                    </div>
+                    <p class="text-sm text-botea-gray-dark font-light leading-relaxed mb-8 flex-grow">
+                        Botea Restaurant brings together woodfire cooking and modern gastronomy for unforgettable
+                        culinary experiences.
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex space-x-4 mt-auto">
+                        <a class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-botea-gold hover:text-botea-gold transition-colors"
+                            href="#">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path clip-rule="evenodd"
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-botea-gold hover:text-botea-gold transition-colors"
+                            href="#">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path clip-rule="evenodd"
+                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-botea-gold hover:text-botea-gold transition-colors"
+                            href="#">
+                            <span class="sr-only">TripAdvisor</span>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.84 10.6l-2.03-1.28c.36-1.58.42-3.15.12-4.66l-1.92-1.2a14.28 14.28 0 00-4.08 1.34 11.23 11.23 0 00-5.86 0 14.28 14.28 0 00-4.08-1.34l-1.92 1.2c-.3 1.51-.24 3.08.12 4.66l-2.03 1.28c-.12.08-.2.2-.24.34a1.08 1.08 0 00.12.82l1.6 2.82c-.1.54-.12 1.1-.06 1.64.06.66.24 1.3.52 1.88l-1.6 2.82a1.08 1.08 0 00.12.82c.1.14.26.24.42.28l4.38 1.2a12.86 12.86 0 005.12 1.04 12.86 12.86 0 005.12-1.04l4.38-1.2c.16-.04.32-.14.42-.28a1.08 1.08 0 00.12-.82l-1.6-2.82c.28-.58.46-1.22.52-1.88.06-.54.04-1.1-.06-1.64l1.6-2.82a1.08 1.08 0 00.12-.82c-.04-.14-.12-.26-.24-.34zm-14.7 6.1a3.5 3.5 0 110-7 3.5 3.5 0 010 7zm11.56-3.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Contact -->
+                <div class="flex flex-col h-full">
+                    <h4 class="font-serif text-sm text-white tracking-widest uppercase mb-6">Contact</h4>
+                    <ul class="space-y-5 text-sm text-botea-gray-dark font-light flex-grow">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-botea-gold mt-0.5" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.5"></path>
+                            </svg>
+                            <span class="">123 Woodfire Street<br>District 1, Ho Chi Minh City</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-botea-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            </svg>
+                            <span class="">(+84) 28 1234 5678</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-botea-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            </svg>
+                            <span class="">info@botearestaurant.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Hours -->
+                <div class="flex flex-col h-full">
+                    <h4 class="font-serif text-sm text-white tracking-widest uppercase mb-6">Opening Hours</h4>
+                    <ul class="space-y-6 text-sm text-botea-gray-dark font-light flex-grow">
+                        <li class="">
+                            <span class="block text-white mb-2">Monday - Friday</span>
+                            11:30 - 14:30<br>
+                            17:30 - 22:30
+                        </li>
+                        <li class="">
+                            <span class="block text-white mb-2">Saturday - Sunday</span>
+                            11:30 - 23:00
+                        </li>
+                    </ul>
+                </div>
+                <!-- Gallery -->
+                <div>
+                    <h4 class="font-serif text-sm text-white tracking-widest uppercase mb-6">Gallery</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                        <!-- Gallery Placeholders -->
+                        <img alt="Desserts" class="h-24 w-24 object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMAxtMuVACyAGbOxtiH2wFt0QPyMXyZbhwTn-byJNXEKOHmx3om_Fo9cqz7rul6J7lVZ4WI7K9yVMt6oA7nmB09ykrG5XFHZec4dmgdqDcP9DGy3ktzEtNDGwlltWAbsELTSpk9XJatDrEfC_HSWLv215X9ZGnhrq5kDEkBaLgT_PvOFFZO37yRp3bsFd0yViZ6XFbR0mePtScXt07iQtVQdbXBS0Wrle0fkR1Tk3vR3m80MWD6wkRtLGkBJeshFIVbxw">
+                        <img alt="Desserts" class="h-24 w-24 object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMAxtMuVACyAGbOxtiH2wFt0QPyMXyZbhwTn-byJNXEKOHmx3om_Fo9cqz7rul6J7lVZ4WI7K9yVMt6oA7nmB09ykrG5XFHZec4dmgdqDcP9DGy3ktzEtNDGwlltWAbsELTSpk9XJatDrEfC_HSWLv215X9ZGnhrq5kDEkBaLgT_PvOFFZO37yRp3bsFd0yViZ6XFbR0mePtScXt07iQtVQdbXBS0Wrle0fkR1Tk3vR3m80MWD6wkRtLGkBJeshFIVbxw">
+                        <img alt="Desserts" class="h-24 w-24 object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMAxtMuVACyAGbOxtiH2wFt0QPyMXyZbhwTn-byJNXEKOHmx3om_Fo9cqz7rul6J7lVZ4WI7K9yVMt6oA7nmB09ykrG5XFHZec4dmgdqDcP9DGy3ktzEtNDGwlltWAbsELTSpk9XJatDrEfC_HSWLv215X9ZGnhrq5kDEkBaLgT_PvOFFZO37yRp3bsFd0yViZ6XFbR0mePtScXt07iQtVQdbXBS0Wrle0fkR1Tk3vR3m80MWD6wkRtLGkBJeshFIVbxw">
+                        <img alt="Desserts" class="h-24 w-24 object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMAxtMuVACyAGbOxtiH2wFt0QPyMXyZbhwTn-byJNXEKOHmx3om_Fo9cqz7rul6J7lVZ4WI7K9yVMt6oA7nmB09ykrG5XFHZec4dmgdqDcP9DGy3ktzEtNDGwlltWAbsELTSpk9XJatDrEfC_HSWLv215X9ZGnhrq5kDEkBaLgT_PvOFFZO37yRp3bsFd0yViZ6XFbR0mePtScXt07iQtVQdbXBS0Wrle0fkR1Tk3vR3m80MWD6wkRtLGkBJeshFIVbxw">
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div
+                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-botea-gray-dark font-light">
+                <p class="">© 2025 Botea Restaurant. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+                    <span class="">|</span>
+                    <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: MainFooter -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
