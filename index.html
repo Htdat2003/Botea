@@ -37,6 +37,10 @@
         }
     </script>
     <style data-purpose="custom-styles">
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: theme('colors.botea-dark');
             color: theme('colors.botea-gray');
@@ -96,17 +100,17 @@
                 <!-- Navigation -->
                 <nav class="hidden md:flex space-x-8">
                     <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
-                        href="#">Home</a>
+                        href="#home">Home</a>
                     <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
-                        href="#">Menu</a>
+                        href="#menu">Menu</a>
                     <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
-                        href="#">About</a>
+                        href="#about">About</a>
                     <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
-                        href="#">Gallery</a>
+                        href="#gallery">Gallery</a>
                     <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
-                        href="#">Events</a>
+                        href="#events">Events</a>
                     <a class="text-white hover:text-botea-gold text-xs font-semibold tracking-widest uppercase transition-colors"
-                        href="#">Contact</a>
+                        href="#contact">Contact</a>
                 </nav>
                 <!-- CTA Button -->
                 <div class="hidden md:block">
@@ -130,7 +134,7 @@
     <!-- END: MainHeader -->
     <main>
         <!-- BEGIN: Hero Section -->
-        <section class="relative h-screen min-h-[800px] flex items-center bg-black overflow-hidden pt-24">
+        <section id="home" class="relative h-screen min-h-[800px] flex items-center bg-black overflow-hidden pt-24">
             <div class="absolute inset-0 z-0"><img
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMAxtMuVACyAGbOxtiH2wFt0QPyMXyZbhwTn-byJNXEKOHmx3om_Fo9cqz7rul6J7lVZ4WI7K9yVMt6oA7nmB09ykrG5XFHZec4dmgdqDcP9DGy3ktzEtNDGwlltWAbsELTSpk9XJatDrEfC_HSWLv215X9ZGnhrq5kDEkBaLgT_PvOFFZO37yRp3bsFd0yViZ6XFbR0mePtScXt07iQtVQdbXBS0Wrle0fkR1Tk3vR3m80MWD6wkRtLGkBJeshFIVbxw"
                     alt="Woodfire Steak" class="w-full h-full object-cover opacity-80">
@@ -166,7 +170,7 @@
         </section>
         <!-- END: Hero Section -->
         <!-- BEGIN: Story Section -->
-        <section class="py-24 bg-botea-dark relative overflow-hidden">
+        <section id="about" class="py-24 bg-botea-dark relative overflow-hidden">
             <div class="absolute inset-0 z-0"><img
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjDhbhr88Vr4SPz_UtFfCXORVmKRXDV6_UlmoTkl0zHmHSBmrXYvYGSZmNXQtzdjdZEPE2wzWJIB_HIiWZml4dTKRimSweMLGd4En7yhED2n1ZYcEmLzeCv_zMKiXMYZU8FaKlh6tysAwAGQAskkU2PiA-Ey7wJSZJ7SR4vM56_96fEPhpz9h7_QMfFr6vxR_0lVfZXW50FxUK_pj8PLnFVqgnbZxauyfJYOZ5PLHuGWKEbZyWvEqwlVWmiCb6NSWO-nQ"
                     alt="Woodfire Gastronomy Background" class="w-full h-full object-cover opacity-80"></div>
@@ -187,7 +191,7 @@
         </section>
         <!-- END: Story Section -->
         <!-- BEGIN: Menu Highlights Section -->
-        <section class="py-24 bg-botea-bg-secondary border-t border-b border-white/5">
+        <section id="menu" class="py-24 bg-botea-bg-secondary border-t border-b border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <div
@@ -382,7 +386,7 @@
         </section>
         <!-- END: Booking Section -->
         <!-- BEGIN: Testimonials Section -->
-        <section class="py-24 bg-botea-dark">
+        <section id="gallery" class="py-24 bg-botea-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-start">
                 <div class="text-center mb-16">
                     <div
@@ -503,7 +507,7 @@
         </section>
         <!-- END: Testimonials Section -->
         <!-- BEGIN: Press Section -->
-        <section class="py-16 bg-black border-y border-white/5">
+        <section id="events" class="py-16 bg-black border-y border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-10">
                     <h4 class="text-botea-gold-dark text-xs tracking-[0.3em] uppercase">As Featured In</h4>
@@ -528,7 +532,7 @@
         <!-- END: Press Section -->
     </main>
     <!-- BEGIN: MainFooter -->
-    <footer class="bg-botea-dark pt-20 pb-10 border-t border-white/10">
+    <footer id="contact" class="bg-botea-dark pt-20 pb-10 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <!-- Brand & About -->
