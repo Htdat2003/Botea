@@ -121,7 +121,7 @@
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button class="text-white hover:text-botea-gold">
+                    <button id="mobile-menu-button" class="text-white hover:text-botea-gold">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2"></path>
@@ -131,15 +131,57 @@
             </div>
         </div>
     </header>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <!-- Backdrop -->
+        <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <!-- Menu Panel -->
+        <div class="relative h-full w-80 bg-botea-dark border-r border-botea-gold/20">
+            <!-- Close Button -->
+            <div class="flex justify-end p-6">
+                <button id="mobile-menu-close" class="text-white hover:text-botea-gold transition-colors">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Logo -->
+            <div class="px-6 mb-8">
+                <img src="logo_botea.png" alt="BOTEA" class="h-16 w-auto">
+            </div>
+            <!-- Navigation Links -->
+            <nav class="flex flex-col space-y-6 px-6">
+                <a class="text-white hover:text-botea-gold text-sm font-semibold tracking-widest uppercase transition-colors border-b border-white/10 pb-4"
+                    href="#home">Home</a>
+                <a class="text-white hover:text-botea-gold text-sm font-semibold tracking-widest uppercase transition-colors border-b border-white/10 pb-4"
+                    href="#menu">Menu</a>
+                <a class="text-white hover:text-botea-gold text-sm font-semibold tracking-widest uppercase transition-colors border-b border-white/10 pb-4"
+                    href="#about">About</a>
+                <a class="text-white hover:text-botea-gold text-sm font-semibold tracking-widest uppercase transition-colors border-b border-white/10 pb-4"
+                    href="#gallery">Gallery</a>
+                <a class="text-white hover:text-botea-gold text-sm font-semibold tracking-widest uppercase transition-colors border-b border-white/10 pb-4"
+                    href="#events">Events</a>
+                <a class="text-white hover:text-botea-gold text-sm font-semibold tracking-widest uppercase transition-colors border-b border-white/10 pb-4"
+                    href="#contact">Contact</a>
+            </nav>
+            <!-- Reserve Button -->
+            <div class="px-6 mt-8">
+                <a class="block text-center border border-botea-gold text-botea-gold px-6 py-3 text-xs font-semibold tracking-widest uppercase hover:bg-botea-gold hover:text-black transition-all duration-300"
+                    href="#reserve">
+                    Reserve A Table
+                </a>
+            </div>
+        </div>
+    </div>
     <!-- END: MainHeader -->
     <main>
         <!-- BEGIN: Hero Section -->
-        <section id="home" class="relative h-screen min-h-[800px] flex items-center bg-black overflow-hidden pt-24">
+        <section id="home" class="relative h-screen min-h-[600px] md:min-h-[800px] flex items-center bg-black overflow-hidden pt-24">
             <div class="absolute inset-0 z-0"><img
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMAxtMuVACyAGbOxtiH2wFt0QPyMXyZbhwTn-byJNXEKOHmx3om_Fo9cqz7rul6J7lVZ4WI7K9yVMt6oA7nmB09ykrG5XFHZec4dmgdqDcP9DGy3ktzEtNDGwlltWAbsELTSpk9XJatDrEfC_HSWLv215X9ZGnhrq5kDEkBaLgT_PvOFFZO37yRp3bsFd0yViZ6XFbR0mePtScXt07iQtVQdbXBS0Wrle0fkR1Tk3vR3m80MWD6wkRtLGkBJeshFIVbxw"
-                    alt="Woodfire Steak" class="w-full h-full object-cover opacity-80">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
+                    alt="Woodfire Steak" class="w-full h-full object-cover object-[75%_center] md:object-center opacity-80" loading="eager">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
             </div>
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
                 <div class="max-w-2xl">
@@ -170,10 +212,14 @@
         </section>
         <!-- END: Hero Section -->
         <!-- BEGIN: Story Section -->
-        <section id="about" class="py-24 bg-botea-dark relative overflow-hidden">
-            <div class="absolute inset-0 z-0"><img
+        <section id="about" class="py-24 bg-botea-dark relative overflow-hidden min-h-[700px] md:min-h-0">
+            <div class="absolute inset-0 z-0">
+                <img
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjDhbhr88Vr4SPz_UtFfCXORVmKRXDV6_UlmoTkl0zHmHSBmrXYvYGSZmNXQtzdjdZEPE2wzWJIB_HIiWZml4dTKRimSweMLGd4En7yhED2n1ZYcEmLzeCv_zMKiXMYZU8FaKlh6tysAwAGQAskkU2PiA-Ey7wJSZJ7SR4vM56_96fEPhpz9h7_QMfFr6vxR_0lVfZXW50FxUK_pj8PLnFVqgnbZxauyfJYOZ5PLHuGWKEbZyWvEqwlVWmiCb6NSWO-nQ"
-                    alt="Woodfire Gastronomy Background" class="w-full h-full object-cover opacity-80"></div>
+                    alt="Woodfire Gastronomy Background" 
+                    class="w-full h-full object-cover object-[60%_center] md:object-center opacity-80 min-h-[700px] md:min-h-0" 
+                    loading="lazy">
+            </div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex justify-start">
                 <div class="max-w-2xl">
                     <h2 class="font-serif text-4xl md:text-5xl text-white leading-tight mb-6 md:text-7xl">THE ART
@@ -287,9 +333,9 @@
         <section class="relative py-32 bg-black overflow-hidden" id="reserve">
             <div class="absolute inset-0 z-0">
                 <!-- Placeholder for atmosphere background -->
-                <img alt="Restaurant Atmosphere" class="w-full h-full object-cover opacity-80"
+                <img alt="Restaurant Atmosphere" class="w-full h-full object-cover object-[65%_center] md:object-center opacity-80" loading="lazy"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHNKH4xpuRfBVfRAkFiTHGS7wG0WqwtTb-ObOA1ntTae478LrhSlLpC3VgggbKE5v0pJfzmn0jYKodIhyCCdIeLZP-FbgRG3zKIVJQN0k-iRcG_4y8O59qxUwmuCl8dgTnDa_pND6Ax5PoC5E4oPTopFWkPC5rqvpfuHav0ITFWIFaRfzgfisXWB3viUl3FB5_jvJ1FN_9JBG3v4vm3yOZpYJnpKC53JCzeafHVVoi1Yuvp8bxlb68LxPXQXp3dEQIoCI">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20"></div>
             </div>
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -674,6 +720,33 @@
 
 
 
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+
+        // Open mobile menu
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+        });
+
+        // Close mobile menu
+        const closeMobileMenu = () => {
+            mobileMenu.classList.add('-translate-x-full');
+        };
+
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(closeMobileMenu, 300);
+            });
+        });
+    </script>
 </body>
 
 </html>
